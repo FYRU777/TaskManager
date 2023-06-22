@@ -1,0 +1,15 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Отправить">
+</form>
+{% else %}
+<h1>Чтобы добавить задачу вы должны зарегистрироваться или войти в аккаунт</h1>
+<a href="{% url 'login' %}">Войти</a>
+<a href="{% url 'signup' %}">Зарегистрироваться</a>
+{% endif %}
+{% endblock content %}

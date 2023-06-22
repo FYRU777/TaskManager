@@ -1,0 +1,28 @@
+{% extends "users/base.html" %}
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    .btn {
+        display: block;
+        border-radius: 5px;
+        background: aliceblue;
+    }
+</style>
+{% block content %}
+{% if user.is_authenticated %}
+{% if tasks %}
+{% for task in tasks %}
+<h2><a href="{% url 'one_task' task.id %}">{{ task.title }}</a></h2>
+{% endfor %}
+{% else %}
+<h2>У вас нет ни одной задачи</h2>
+<a href="{% url 'add_task' %}" class="btn btn-primary">Добавить задачу</a>
+{% endif %}
+{% else %}
+<h1>Чтобы посмотреть задачи нужно зарегистрироватся или войти в аккаунт</h1>
+<a href="{% url 'login' %}">Войти</a>
+<a href="{% url 'signup' %}">Зарегистрироваться</a>
+{% endif %}
+{% endblock content %}

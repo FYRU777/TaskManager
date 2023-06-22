@@ -1,0 +1,17 @@
+{% extends "users/base.html" %}
+{% load static %}
+
+<style>
+    body {
+        color: pink;
+        text-align: center;
+    }
+</style>
+
+{% block content %}
+<h1>Привет, {{ user.username|default:'Приятель'|title }}</h1>
+
+<p> Добро пожаловать на сайт менеджер задач</p>
+<img src="{% static 'users/img/last.png' %}" alt="logo">
+
+{% endblock content %}

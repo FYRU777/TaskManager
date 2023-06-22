@@ -1,0 +1,9 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<h1>{{task.title}}</h1>
+<h3>{{task.description}}</h3>
+<h3>Начало {{task.start_date}}</h3>
+<h3>Выполнить до {{task.end_date}}</h3>
+<h2>Осталось {{task.days_left}} дней </h2>
+{% endblock content %}
